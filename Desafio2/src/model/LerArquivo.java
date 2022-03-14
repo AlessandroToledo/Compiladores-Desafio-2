@@ -28,40 +28,37 @@ public class LerArquivo {
 	    	  {
 	    		  if(linha.charAt(i)=='(' || linha.charAt(i)=='{' || linha.charAt(i)=='[' ||linha.charAt(i)=='<')
 	    		  {
-	    			  pilha.empilhar(linha.charAt(i));
-	    			  System.out.println("empilha");
+	    			  pilha.empilhar(linha.charAt(i));	
 	    		  }
 	    		  else if(pilha.pilhaVazia()==false)
 	    		  {
 	    			  if(linha.charAt(i)==')' && pilha.exibeUltimoValor()=='(')
 	    			  {
 	    				  pilha.desempilhar();
-	    				  System.out.println("desempilha");
 	    			  }
 		    		  else if(linha.charAt(i)=='}' && pilha.exibeUltimoValor()=='{')
 		    		  {
 		    			  pilha.desempilhar();
-		    			  System.out.println("desempilha");
 		    		  }
 		    		  else if(linha.charAt(i)==']' && pilha.exibeUltimoValor()=='[')
 		    		  {
 		    			  pilha.desempilhar();
-		    			  System.out.println("desempilha");
 		    		  }
 		    		  else if(linha.charAt(i)=='>' && pilha.exibeUltimoValor()=='<')
 		    		  {
 		    			  pilha.desempilhar();
-		    			  System.out.println("desempilha");
 		    		  }
 		    		  else
 		    		  {
 		    			  validacao=" - Inválido";
-		    			  System.out.println("erro");
+		    			  pilha.limparPilha();
+		    			  break;
 		    		  }
 	    		  }
 	    		  else
 	    		  {
 	    			  validacao=" - Inválido";
+	    			  pilha.limparPilha();
 	    			  break;
 	    		  }
 	    		
@@ -81,7 +78,7 @@ public class LerArquivo {
 	    	  linha = lerArq.readLine();
 	        
 	      }
-
+	      System.out.print("cabo");
 	      arq.close();
 	      arqW.close();
 	      
